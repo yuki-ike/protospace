@@ -28,6 +28,7 @@
 
   *アソシエーションについて*
    Prototype has many Comments, Like
-   User belongs to Job
-   User has many Likes
+   User belongs to Prototype
+   User has many Comments, Likes
    Comment belongs to Prototype, User
+   Like belongs to Prototype, User
