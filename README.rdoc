@@ -1,0 +1,53 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+* System dependencies
+* Configuration
+
+* Database creation
+  1.jobs table
+   t.integer :name
+   t.text :text
+   t.date :date
+   t.time :start_time
+   t.time :end_time
+   t.string :place
+   t.text :image
+   t.integer :use_id  
+
+  2.users table
+   t.text :family_name
+   t.text :first_name
+   t.text :family_name_kana
+   t.text :first_name_kana
+   t.text :email
+   t.date :birth_day
+   t.integer :prefecture
+   t.text :image
+   t.integer :payment  
+
+  3.comments table
+   t.integer :user_id
+   t.integer :jobs_id
+   t.text :text  
+
+  *アソシエーションについて*
+   Job has many Users, Comments
+   User has many Comments
+   User belongs to Job
+   Comment belongs to Job, User
+
+* Database initialization
+* How to run the test suite
+* Services (job queues, cache servers, search engines, etc.)
+* Deployment instructions
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
