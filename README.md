@@ -24,16 +24,14 @@
    t.integer :user_id
    t.integer :prototype_id
 
-  5.images table
+  5.contens table
    t.integer :prototype_id
-   t.text :image1
-   t.text :image2
-   t.text :image3
+   t.text :content
 
   *アソシエーションについて*
-   Prototype has many Comments, Like, Images
+   Prototype has many Comments, Likes, Contents
    User belongs to Prototype
    User has many Comments, Likes
    Comment belongs to Prototype, User
    Like belongs to Prototype, User
-   Images belongs to Prototype
+   Contents belongs to Prototype
