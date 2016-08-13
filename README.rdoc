@@ -18,7 +18,7 @@ Things you may want to cover:
    t.time :end_time
    t.string :place
    t.text :image
-   t.integer :use_id  
+   t.integer :use_id
 
   2.users table
    t.text :family_name
@@ -29,12 +29,12 @@ Things you may want to cover:
    t.date :birth_day
    t.integer :prefecture
    t.text :image
-   t.integer :payment  
+   t.integer :payment
 
   3.comments table
    t.integer :user_id
    t.integer :jobs_id
-   t.text :text  
+   t.text :text
 
   *アソシエーションについて*
    Job has many Users, Comments
