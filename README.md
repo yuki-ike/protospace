@@ -1,33 +1,33 @@
 # protospace
 * Database creation
-  1.jobs table
-   t.integer :name
-   t.text :text
-   t.date :date
-   t.time :start_time
-   t.time :end_time
-   t.string :place
+  1.prototypes table
    t.text :image
-   t.integer :use_id
+   t.text :catch_copy
+   t.text :concept
+   t.text :ui
+   t.text :application
 
   2.users table
-   t.text :family_name
-   t.text :first_name
-   t.text :family_name_kana
-   t.text :first_name_kana
-   t.text :email
-   t.date :birth_day
-   t.integer :prefecture
+   t.text :username
    t.text :image
-   t.integer :payment
+   t.text :email
+   t.text :password
+   t.text :member of
+   t.text :profile
+   t.text :works
 
   3.comments table
    t.integer :user_id
-   t.integer :jobs_id
+   t.integer :prototype_id
    t.text :text
 
+  4.likes table
+   t.integer :user_id
+   t.integer :prototype_id
+
+
   *アソシエーションについて*
-   Job has many Users, Comments
-   User has many Comments
+   Prototype has many Users, Comments, Like
    User belongs to Job
-   Comment belongs to Job, User
+   User has many Likes
+   Comment belongs to Prototype, User
