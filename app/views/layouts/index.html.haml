@@ -169,11 +169,3 @@
     %li
       %a{"aria-label": "Next", href: "#"}
         %span{"aria-hidden": "true"} »
-
-
-- if user_signed_in?
-  = link_to "Settings", edit_user_registration_path, :class => "navbar-link"
-  = link_to "Logout", destroy_user_session_path, method: :delete, :class => "navbar-link"
-- else
-  = link_to "Sign up", new_user_registration_path, :class => 'navbar-link'
-  = link_to "Login", new_user_session_path, :class => 'navbar-link'
