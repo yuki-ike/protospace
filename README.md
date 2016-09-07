@@ -3,8 +3,7 @@
   1.prototypes table
    t.text :catch_copy
    t.text :concept
-   t.text :ui
-   t.text :application
+   t.text :title
 
   2.users table
    t.text :username
