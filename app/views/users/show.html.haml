@@ -25,5 +25,19 @@
                 = @user.works
 .container.proto-list
   .row
+    - @prototypes.each do |prototype|
+      .col-sm-4.col-md-3.proto-content
+        .thumbnail
+          = link_to image_tag("#{prototype.content_main}"), "prototypes/#{prototype.id}"
+          .caption
+            %h3
+              = prototype.title
+            .proto-meta
+              .proto-user
+                = link_to " by #{prototype.user.username} ", user_path(prototype.user_id)
+              .proto-posted
+                = prototype.created_at.strftime('%b %d')
+.container.proto-list
+  .row
 .text-center
   %ul.pagination
