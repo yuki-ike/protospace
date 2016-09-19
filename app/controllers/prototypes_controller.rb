@@ -5,8 +5,7 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-    @main_image = @prototype.contents.build
-    @sub_images = @prototype.contents.build
+    @prototype_images = @prototype.contents.build
   end
 
   def create
