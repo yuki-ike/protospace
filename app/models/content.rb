@@ -6,5 +6,6 @@ class Content < ActiveRecord::Base
 
   enum status: { main: 1, sub: 2 }
 
-  validates_presence_of :content, :status, presence: true
+  validates_presence_of :content, :status
+
 end
