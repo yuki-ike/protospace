@@ -16,8 +16,29 @@ class PrototypesController < ApplicationController
       render :new
     end
   end
+
   def show
     @prototype = Prototype.find(params[:id])
+  end
+
+  def edit
+    @prototype = Prototype.find(params[:id])
+  end
+
+  def update
+    prototype = Prototype.find(params[:id])
+    if prototype.user_id == current_user.id
+      prototype.update(prototype_params)
+      redirect_to root_path
+    end
+  end
+
+  def destroy
+    prototype = Prototype.find(params[:id])
+    if prototype.user_id == current_user.id
+      prototype.destroy
+      redirect_to root_path
+    end
   end
 
   private
