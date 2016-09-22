@@ -15,5 +15,5 @@
 # Ignore images file
 /images
 
-tmp/public/uploads
+public/uploads
 
