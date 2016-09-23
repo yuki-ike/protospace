@@ -14,7 +14,7 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :contents, @prototype_images do |content|
+            = f.fields_for :contents, @main_image do |content|
               = content.file_field :content
               = content.hidden_field :status, value: "main"
         .col-md-12
@@ -22,7 +22,7 @@
             - 3.times do |sub|
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :contents, @prototype_images do |content|
+                  = f.fields_for :contents, @sub_images do |content|
                     = content.file_field :content
                     = content.hidden_field :status, value: "sub"
             / %li.list-group-item.col-md-4

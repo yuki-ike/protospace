@@ -5,12 +5,14 @@ class PrototypesController < ApplicationController
 
   def new
     @prototype = Prototype.new
-    @prototype_images = @prototype.contents.build
+    @main_image = @prototype.contents.build
+    @sub_images = @prototype.contents.build
   end
 
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
+      flash[:success] = 'Prototype was successfully created.'
       redirect_to root_path
     else
       render :new
@@ -29,7 +31,10 @@ class PrototypesController < ApplicationController
     prototype = Prototype.find(params[:id])
     if prototype.user_id == current_user.id
       prototype.update(prototype_params)
+      flash[:success] = 'Update was successfully created.'
       redirect_to root_path
+    else
+      render :edit
     end
   end
 
