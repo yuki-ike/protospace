@@ -323,7 +323,7 @@ body {
 
 .proto-page {
   .user-nav {
-    padding: 50px 0;
+    padding: 50px 0px 15px;
 
     .media-object {
       border-radius: 50%;
@@ -630,4 +630,17 @@ body {
   position: absolute;
   top: 10px;
   left: 20px;
+}
+
+.likes-box {
+  float: right;
+  width: 268px;
+  margin: 0px -1px 15px 0px;
+}
+
+.likes-box#like-button {
+  float: left;
+  height: 62px;
+  width: 110px;
+  margin-right: 10px;
 }
