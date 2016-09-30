@@ -11,12 +11,10 @@
           .proto-user
             = link_to " by #{@prototype.user.username} ", user_path(@prototype.user_id)
             %span.degree #{@prototype.user.profile} #{@prototype.user.works}
-
-    .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("")
-        Like
-        %span.num 20
+    .col-md-6.clearfix
+      .likes-box
+        #like-button
+          = render :partial => "likes/like", locals: { like: @like, prototype: @prototype }
   .row
     .col-md-9
       = image_tag("#{@prototype.content_main}", class: 'img-responsive')
@@ -40,7 +38,7 @@
   .row.proto-comments
     %h4.col-md-12
       Comments
-      %span.num (10)
+      %span.num (#{@comments.count})
     .col-md-8
       .media
         .media-left
@@ -52,12 +50,4 @@
             %a.anchorjs-link{href: "#top-aligned-media"}
               %span.anchorjs-icon
           %p
-
-      %form.form-inline{role: "form"}
-        %h4 Write a comment
-        .row
-          .form-group.col-md-10
-            %textarea.form-control{placeholder: "Your comments", rows: "3"}
-          .form-group.col-md-2
-            %button.btn.btn-primary Comment
-
+    = render :partial => "comments/comments", locals: { comments: @comments }
