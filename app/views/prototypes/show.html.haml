@@ -11,18 +11,18 @@
           .proto-user
             = link_to " by #{@prototype.user.username} ", user_path(@prototype.user_id)
             %span.degree #{@prototype.user.profile} #{@prototype.user.works}
-
-    .col-md-6.text-right
-      %button.btn.btn-default
-        = image_tag("")
-        Like
-        %span.num 20
+    .col-md-6.clearfix
+      .likes-box
+        #like-button
+          = render partial: "likes/like", locals: { like: @like, prototype: @prototype }
   .row
     .col-md-9
       = image_tag("#{@prototype.content_main}", class: 'img-responsive')
     .col-md-3
       %ul.proto-sub-list.list-group
-        = render :partial => "sub", :collection => @prototype.contents.sub, :as => "sub"
+        - @prototype.contents.sub.each do |sub|
+          %li.list-group-item
+            = image_tag( sub.content , class: 'img-responsive')
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
@@ -38,26 +38,13 @@
         %li
           %a{href: "#", class: "btn btn-default"} wireframe
   .row.proto-comments
-    %h4.col-md-12
-      Comments
-      %span.num (10)
-    .col-md-8
-      .media
-        .media-left
-          / %a{href: "#"}
-          /   %img.media-object{alt: "64x64", "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "", style: "width: 64px; height: 64px;"}/
-        .media-body
-          %h4#top-aligned-media.media-heading
-            Top aligned media
-            %a.anchorjs-link{href: "#top-aligned-media"}
-              %span.anchorjs-icon
-          %p
-
-      %form.form-inline{role: "form"}
+    #comment_list
+      = render partial: "comments/comment", locals: { prototype: @prototype, comments: @comments }
+    - if current_user.present?
+      = form_for [@prototype, @comment], html: {id: 'new_comment', class: 'form-inline'}, remote: true do |f|
         %h4 Write a comment
         .row
           .form-group.col-md-10
-            %textarea.form-control{placeholder: "Your comments", rows: "3"}
+            = f.text_area :text, class: "textform-control", placeholder: "Your comments", row: "3", id: "comment_text"
           .form-group.col-md-2
-            %button.btn.btn-primary Comment
-
+            = f.submit "Comment", class: "btn btn-lg btn-primary"

@@ -1,0 +1,15 @@
+%h4.col-md-12
+  Comments
+  %span.num (#{comments.count})
+.col-md-8#comment_area
+  - comments.each do |comment|
+    .media
+      .media-left
+        = link_to "画像", user_path(prototype.user_id)
+      .media-body
+        %h4#top-aligned-media.media-heading
+          = comment.user.username
+          %a.anchorjs-link{href: "#top-aligned-media"}
+            %span.anchorjs-icon
+          %p
+          = comment.text

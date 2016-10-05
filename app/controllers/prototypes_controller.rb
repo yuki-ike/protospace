@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.includes(:user).all
+    @prototypes = Prototype.eager_load(:user).all
   end
 
   def new
@@ -21,6 +21,11 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    @comments = @prototype.comments.eager_load(:user)
+    if current_user.present?
+      @like = Like.find_by(user_id: current_user.id, prototype_id: params[:id])
+      @comment = Comment.new
+    end
   end
 
   def edit
