@@ -23,7 +23,8 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
     @comments = @prototype.comments.includes(:user)
     if current_user.present?
-    @like = Like.find_by(user_id: current_user.id, prototype_id: params[:id])
+      @like = Like.find_by(user_id: current_user.id, prototype_id: params[:id])
+      @comment = Comment.new
     end
   end
 
