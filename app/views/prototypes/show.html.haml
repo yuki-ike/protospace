@@ -39,7 +39,7 @@
           %a{href: "#", class: "btn btn-default"} wireframe
   .row.proto-comments
     #comment_list
-      = render partial: "comments/comments", locals: { prototype: @prototype, comments: @comments }
+      = render partial: "comments/comment", locals: { prototype: @prototype, comments: @comments }
     - if current_user.present?
       = form_for [@prototype, @comment], html: {id: 'new_comment', class: 'form-inline'}, remote: true do |f|
         %h4 Write a comment

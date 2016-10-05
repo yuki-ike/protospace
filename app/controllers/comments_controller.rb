@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   def create
     @prototype = Prototype.find(params[:prototype_id])
     @comment = @prototype.comments.create(comment_params)
-    @comments = @prototype.comments.includes(:user)
+    @comments = @prototype.comments.eager_load(:user)
   end
 
   private
