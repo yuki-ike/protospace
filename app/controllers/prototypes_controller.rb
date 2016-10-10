@@ -1,7 +1,4 @@
 class PrototypesController < ApplicationController
-  def index
-    @prototypes = Prototype.order("created_at DESC")
-  end
 
   def new
     @prototype = Prototype.new
