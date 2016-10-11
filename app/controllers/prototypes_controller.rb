@@ -1,7 +1,4 @@
 class PrototypesController < ApplicationController
-  def index
-    @prototypes = Prototype.eager_load(:user).all
-  end
 
   def new
     @prototype = Prototype.new
