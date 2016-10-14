@@ -1,19 +1,18 @@
 class Prototype < ActiveRecord::Base
 
-  has_many :contents
-  accepts_nested_attributes_for :contents, allow_destroy: true, reject_if: :has_content?
   belongs_to :user
+
+  has_many :contents
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  def like_user(user_id)
-    likes.find_by(user_id: user_id)
-  end
+  accepts_nested_attributes_for :contents, allow_destroy: true, reject_if: :has_content?
 
-  validates :title, presence: true
-  validates :concept, presence: true
-  validates :catch_copy, presence: true
+  validates :title, :concept, :catch_copy, presence: true
 
+  acts_as_taggable_on :prototypes
+  acts_as_taggable          # acts_as_taggable_on :tags のエイリアス(prototype.tag_list)
+  acts_as_ordered_taggable_on :prototypes
 
   def content_main
     if contents.main.present?
@@ -23,6 +22,10 @@ class Prototype < ActiveRecord::Base
 
   def has_content?(attributes)
     attributes['content'].blank?
+  end
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
   end
 
 end

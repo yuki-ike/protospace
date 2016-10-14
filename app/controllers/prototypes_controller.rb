@@ -54,6 +54,6 @@ class PrototypesController < ApplicationController
       :title,
       :catch_copy,
       :concept,
-      contents_attributes:[:id, :content, :status]).merge(user_id: current_user.id)
+      contents_attributes:[:id, :content, :status]).merge(user_id: current_user.id, tag_list: params[:prototype][:tag])
   end
 end
