@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:edit, :show, :update]
-  resources :tags, only: :index
-  get 'tags/:name', to: 'tags#show'
+  resources :tags, param: :name, only: [:index, :show]
 
   end
