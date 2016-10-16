@@ -14,7 +14,7 @@
 
 .container.proto-list
   .row
-    = render partial: "prototypes/index", locals: {prototypes: @prototypes}
+    = render partial: "tags/prototype", locals: {  prototypes: @prototypes }
 .text-center
   %ul.pagination
     %li.disabled
@@ -34,4 +34,4 @@
       %a{href: "#"} 5
     %li
       / %a{"aria-label": "Next", href: "#"}
-      /   %span{"aria-hidden": "true"} »
+      /   %span{"aria-hidden": "true"} ».container.proto-list
