@@ -13,15 +13,17 @@
             = f.text_field :title, placeholder: "Title"
       .row
         .col-md-12
-          .cover-image-upload
+          .cover-image-upload.js-fileInput
+            = image_tag("#{@prototype.content_main}", class: 'img_mainView')
             = f.fields_for :contents, @main_image do |content|
               = content.file_field :content
               = content.hidden_field :status, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            - 3.times do |sub|
+            - @prototype.contents.sub.each do |sub|
               %li.list-group-item.col-md-4
-                .image-upload
+                .image-upload.js-file-subInput
+                  = image_tag( sub.content , class: 'img_View')
                   = f.fields_for :contents, @sub_images do |content|
                     = content.file_field :content
                     = content.hidden_field :status, value: "sub"
@@ -41,3 +43,15 @@
               %input{type: "text", placeholder: "Application"}/
     .row.text-center.proto-btn
       = f.submit "Publish", class: "btn btn-lg btn-primary btn-block"
+:javascript
+  var etFileInput = $('.js-fileInput');
+  $(etFileInput).on("click", function(){
+    console.log($(this));
+    main_image();
+  });
+  var etFileInput = $('.js-file-subInput');
+  $(etFileInput).on("click", function(){
+    console.log($(this));
+    sub_image();
+  });
+

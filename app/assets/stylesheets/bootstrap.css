@@ -6754,4 +6754,18 @@ button.close {
     display: none !important;
   }
 }
+
+.img_mainView {
+  height: 500px;
+  max-width: 730px;
+  width: auto;
+  width: 100%;
+}
+
+.img_View {
+  min-width: 213.33px;
+  height:200px;
+  width: auto;
+  width: 100%;
+}
 /*# sourceMappingURL=bootstrap.css.map */
