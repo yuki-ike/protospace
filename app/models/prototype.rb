@@ -20,6 +20,12 @@ class Prototype < ActiveRecord::Base
     end
   end
 
+  def content_sub
+    if contents.sub.present?
+      contents.sub
+    end
+  end
+
   def has_content?(attributes)
     attributes['content'].blank?
   end
