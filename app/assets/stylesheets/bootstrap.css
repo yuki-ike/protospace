@@ -6768,4 +6768,13 @@ button.close {
   width: auto;
   width: 100%;
 }
+
+.avater_View{
+  min-width: 64px;
+  height:64px;
+  width: auto;
+  width: 100%;
+  height: auto;
+  height: 100%;
+}
 /*# sourceMappingURL=bootstrap.css.map */

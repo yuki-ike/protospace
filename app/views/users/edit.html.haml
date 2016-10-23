@@ -8,9 +8,11 @@
           .user-name_image.row
             .user-name.col-md-10
               = f.text_field :username, placeholder: "Username"
-            .user-image.col-md-2
+            .user-image.col-md-2.upload_avater
+              %img#user_avatar.media-object
               %button.btn.btn-primary Change image
-              = f.text_field :image
+              = image_tag("#{@user.image}", class: 'avater_View')
+              = f.file_field :image, id: "upload_avater"
           .user-emailtype
           = f.email_field :email, placeholder: "E-Mail", autofocus: true
           .user-password
