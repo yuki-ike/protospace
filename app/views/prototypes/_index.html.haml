@@ -1,8 +1,8 @@
 - prototypes.each do |prototype|
   .col-sm-4.col-md-3.proto-content
     - if user_signed_in? && current_user.id == prototype.user_id
-      .dropdown.drop_menu_location.open
-        %button.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", "id" => "dropdownMenu", "type" => "button"}
+      .dropdown.drop_menu_location
+        %button.btn.btn-default.dropdown-toggle{ type: 'button', data: {toggle: :dropdown}, aria: { expanded: :true }, id: "dropdownMenu"}
           Action
         %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
           %li
