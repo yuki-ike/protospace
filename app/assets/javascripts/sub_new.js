@@ -1,4 +1,4 @@
-function sub_image(){
+$(function sub_image(){
     var setFileInput = $('.js-file-subInput');
 
     setFileInput.each(function(){
@@ -34,4 +34,14 @@ function sub_image(){
             }
         });
     });
-};
+});
+
+
+$(window).on("load", function() {
+    $("#add_new_form").on("click", function(){
+        $(this).addClass("li.list-group-item.col-md-4.hide_form");
+        $("li.list-group-item.col-md-4#add_new_form").hide();
+        console.log(this.id);
+        $("." + this.id).show();
+    });
+});
