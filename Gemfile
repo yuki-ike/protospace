@@ -52,3 +52,5 @@ gem 'carrierwave'
 gem 'acts-as-taggable-on'
 gem 'jquery-turbolinks'
 gem 'bullet'
+gem 'kaminari'
+
