@@ -14,6 +14,8 @@ class Prototype < ActiveRecord::Base
   # acts_as_taggable_on :tags のエイリアス(prototype.tag_list)
   acts_as_ordered_taggable_on :prototypes
 
+  paginates_per 8
+
   def content_main
     if contents.main.present?
       contents.main[0].content
