@@ -20,13 +20,14 @@
               = content.hidden_field :status, value: "main"
         .col-md-12
           %ul.proto-sub-list.list-group
-            - @prototype.contents.sub.each do |sub|
-              %li.list-group-item.col-md-4
+            - 3.times do |sub|
+              %li.list-group-item.col-md-4.appear_form
                 .image-upload.js-file-subInput
+                  - @prototype.contents.sub.each do |sub|
                   = image_tag( sub.content , class: 'img_View')
-                  = f.fields_for :contents, @sub_images do |content|
-                    = content.file_field :content
-                    = content.hidden_field :status, value: "sub"
+                    = f.fields_for :contents, @sub_images do |content|
+                      = content.file_field :content
+                      = content.hidden_field :status, value: "sub"
       .row.proto-description
         .col-md-12
           = f.text_field :catch_copy, placeholder: "Catch Copy"
