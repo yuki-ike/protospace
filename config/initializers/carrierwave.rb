@@ -9,9 +9,11 @@ CarrierWave.configure do |config|
 
     case Rails.env
     when 'development'
+        config.storage = :file
         config.fog_directory  = 'upload-ikeda'
         config.asset_host = 'https://s3.amazonaws.com/upload-ikeda'
     when 'production'
+        config.storage = :fog
         config.fog_directory  = 'upload-ikeda'
         config.asset_host = 'https://s3.amazonaws.com/upload-ikeda'
     end
