@@ -53,4 +53,5 @@ gem 'acts-as-taggable-on'
 gem 'jquery-turbolinks'
 gem 'bullet'
 gem 'kaminari'
-
+gem 'fog'
+gem 'config'
