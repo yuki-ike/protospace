@@ -32,9 +32,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+group :development, :test do 
+  gem "rspec-rails"         #Rails 専用の機能を追加するRSpecのラッパーライブラリ
+  gem "factory_girl_rails"  #テストデータを作成する
 end
 
 group :development do
@@ -44,6 +44,15 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+
+group :test do
+  gem "capybara"            #ユーザーとWebアプリケーションのやり取りをプログラム上で簡単にシュミレートを可能にする
+  gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
+  gem "launchy"             #テストのデバック用
+  gem "poltergeist"         #capybaraのためのドライバ
+  gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
+end
+
 gem 'haml-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
@@ -55,3 +64,4 @@ gem 'bullet'
 gem 'kaminari'
 gem 'fog'
 gem 'config'
+gem 'poltergeist'
