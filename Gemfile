@@ -35,7 +35,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do 
   gem "rspec-rails"         #Rails 専用の機能を追加するRSpecのラッパーライブラリ
   gem "factory_girl_rails"  #テストデータを作成する
-  gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
 end
 
 group :development do
@@ -51,6 +50,7 @@ group :test do
   gem "database_cleaner"    #データベースをまっさらな状態で各specが実行できるようにする
   gem "launchy"             #テストのデバック用
   gem "poltergeist"         #capybaraのためのドライバ
+  gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
 end
 
 gem 'haml-rails'
