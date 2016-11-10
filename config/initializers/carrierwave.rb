@@ -12,6 +12,9 @@ CarrierWave.configure do |config|
         config.storage = :file
         config.fog_directory  = 'upload-ikeda'
         config.asset_host = 'https://s3.amazonaws.com/upload-ikeda'
+    when 'test'
+       config.storage = :file
+       config.enable_processing = false
     when 'production'
         config.storage = :fog
         config.fog_directory  = 'upload-ikeda'

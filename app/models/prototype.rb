@@ -8,7 +8,7 @@ class Prototype < ActiveRecord::Base
 
   accepts_nested_attributes_for :contents, allow_destroy: true, reject_if: :has_content?
 
-  validates :title, :concept, :catch_copy, :contents, presence: true
+  validates :title, :concept, :catch_copy, presence: true
 
   acts_as_taggable
   # acts_as_taggable_on :tags のエイリアス(prototype.tag_list)

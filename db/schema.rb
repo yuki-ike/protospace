@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011031653) do
+ActiveRecord::Schema.define(version: 20161030023601) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20161011031653) do
     t.text     "concept",     limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "likes_count", limit: 4
     t.integer  "user_id",     limit: 4
-    t.integer  "likes_count", limit: 4,     default: 0
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -85,12 +85,10 @@ ActiveRecord::Schema.define(version: 20161011031653) do
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
     t.text     "username",               limit: 65535
+    t.text     "image",                  limit: 65535
     t.text     "member_of",              limit: 65535
     t.text     "profile",                limit: 65535
     t.text     "works",                  limit: 65535
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.text     "image",                  limit: 65535
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
