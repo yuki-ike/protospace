@@ -1,17 +1,16 @@
 require 'rails_helper'
 describe Prototype do
-  let(:params) { Prototype.create()}
 
   describe "DELETE #destroy" do
+    let(:prototype) { create(:prototype) }
+
     it 'deletes the comments when prototype is deleted' do
-    prototype = create(:prototype)
-    comment =create(:comment, prototype: prototype)
-    expect {
-    prototype.destroy }.to change{Comment.count}.by(-1)
+      comment = create(:comment, prototype: prototype)
+      expect {
+      prototype.destroy }.to change{Comment.count}.by(-1)
     end
 
     it 'deletes the likes when Prototype is deleted' do
-    prototype = create(:prototype)
     like = create(:like, prototype: prototype)
     expect {
      prototype.destroy }.to change{Like.count}.by(-1)
@@ -47,6 +46,10 @@ describe Prototype do
     end
 
 end
+
+
+
+
 
 
 
