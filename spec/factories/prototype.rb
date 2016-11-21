@@ -6,4 +6,8 @@ FactoryGirl.define do
     concept { Faker::Name.name }
 
   end
+
+  factory :invalid_prototype do
+    title nil
+  end
 end

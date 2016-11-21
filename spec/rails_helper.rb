@@ -22,6 +22,9 @@ RSpec.configure do |config|
   config.before(:all) do
       FactoryGirl.reload
   end
+
+  config.include Devise::TestHelpers, type: :controller
+  # config.render_views = true
 end
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
