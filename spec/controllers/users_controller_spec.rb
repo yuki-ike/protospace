@@ -17,13 +17,15 @@ describe UsersController do
 
     describe 'GET #edit' do
       let(:user){ create(:user) }
+      before :each do
+        get :show, id: user.id
+      end
 
       it "assigns the requested to @user" do
-        get :show, id: user.id
         expect(assigns(:user)).to eq(user)
       end
 
-      it "renders the :show templates" do
+      it "renders the :edit templates" do
         get :edit, id: user.id
         expect(response).to render_template :edit
        end

@@ -10,10 +10,12 @@ describe PrototypesController do
   end
 
   describe 'POST #create' do
+    before :each do
+      sign_in create(:user)
+    end
+    let(:prototype){ create(:prototype) }
 
     context 'with the valid attribtues' do
-      before { sign_in create(:user) }
-      let(:prototype){ create(:prototype) }
 
       it 'saves the new prototype in the database' do
         expect{
@@ -32,12 +34,7 @@ describe PrototypesController do
       end
     end
 
-  end
-
-
     context 'with invalid attribtues' do
-      before { sign_in create(:user) }
-      let(:prototype){ create(:prototype) }
 
       it 'does not saves the new prototype in the database' do
         expect{
@@ -45,7 +42,7 @@ describe PrototypesController do
         }.not_to change(Prototype, :count)
       end
     end
-
+  end
 
   describe 'GET #show' do
     let(:prototype) { create(:prototype) }
@@ -66,7 +63,7 @@ describe PrototypesController do
       get :show, id: prototype
       expect(response).to render_template :show
       end
-    end
+  end
 
   describe 'GET #edit' do
     let(:prototype) { create(:prototype) }
@@ -74,7 +71,6 @@ describe PrototypesController do
       get :edit, id: prototype
       expect(assigns(:prototype)).to eq prototype
       end
-      # OK
 
     it "assigns main_image to @main_image" do
       get :edit, id: prototype
@@ -84,7 +80,7 @@ describe PrototypesController do
     it "reders the :edit template" do
         get :edit, id:prototype
         expect(response).to render_template :edit
-      end
+    end
   end
 
 
@@ -95,14 +91,18 @@ describe PrototypesController do
       end
 
       it 'does not saves the new prototype' do
-     @prototype.should_not be_valid
-     end
+        expect(@prototype).not_to be_valid
+      end
 
     end
   end
 
   describe 'DELETE #destroy' do
-    before { sign_in create(:user) }
+    before :each do
+    sign_in create(:user)
+    end
+    let(:prototype) { create(:prototype)}
+
     it 'deletes the prototype' do
       prototype = create(:prototype)
       expect{
@@ -111,7 +111,6 @@ describe PrototypesController do
     end
 
     it 'redirects to root_path' do
-      prototype = create(:prototype)
       delete :destroy, id: prototype
       expect(response).to redirect_to(root_path)
     end
