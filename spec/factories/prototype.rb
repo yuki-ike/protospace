@@ -6,4 +6,5 @@ FactoryGirl.define do
     concept { Faker::Name.name }
 
   end
+
 end

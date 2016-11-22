@@ -5,8 +5,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(update_params)
-    redirect_to "/"
+    user = User.find(params[:id])
+    user.update(update_params)
+    redirect_to root_path
   end
 
   def show
