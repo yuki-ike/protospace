@@ -51,6 +51,7 @@ group :test do
   gem "launchy"             #テストのデバック用
   gem "poltergeist"         #capybaraのためのドライバ
   gem "faker"               #名前やメールアドレス、その他のプレースホルダなどをダミーデータ生成
+  gem 'selenium-webdriver'
 end
 
 gem 'haml-rails'
