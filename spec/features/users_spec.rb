@@ -1,5 +1,12 @@
 require 'rails_helper'
 
+def sign_in
+  user = create(:user)
+  fill_in 'Email address', with: user.email
+  fill_in 'Password', with: user.password
+  click_button 'Sign in'
+end
+
 feature 'sign_up' do
   scenario "adds a new user" do
 
@@ -21,11 +28,8 @@ end
 
 feature 'adds a new proto' do
   scenario "adds a new proto" do
-    user = create(:user)
     visit new_user_session_path
-      fill_in 'Email address', with: user.email
-      fill_in 'Password', with: user.password
-      click_button 'Sign in'
+      sign_in
 
     visit new_prototype_path
     expect{
